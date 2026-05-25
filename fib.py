@@ -15,7 +15,7 @@ import sys
 from signal import signal, SIGINT
 
 
-def fibonacci_recur(n, values={}):
+def fib_recursive(n, values={}):
     if n in values:
         return values[n]
     if n == 0:
@@ -23,11 +23,11 @@ def fibonacci_recur(n, values={}):
     if n == 1:
         return 1
 
-    values[n] = fibonacci_recur(n - 1, values) + fibonacci_recur(n - 2, values)
+    values[n] = fib_recursive(n - 1, values) + fib_recursive(n - 2, values)
     return values[n]
 
 
-def fibonacci_iter(n):
+def fib_iterative(n):
     if n == 0:
         return 0
     if n == 1:
@@ -47,8 +47,8 @@ def valid_n(value):
 
 
 function_handler = {
-    'recursive': lambda data: fibonacci_recur(data),
-    'iterative': lambda data: fibonacci_iter(data)
+    'recursive': lambda data: fib_recursive(data),
+    'iterative': lambda data: fib_iterative(data)
 }
 
 
